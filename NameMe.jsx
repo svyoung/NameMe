@@ -4,6 +4,7 @@ class NameMe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      apiKey: 'sa340967',
       typeVal: '',
       nameTypeValue: ''
     }
@@ -22,7 +23,7 @@ class NameMe extends React.Component {
 
   submitHandler() {
     var self = this;
-    $.get('https://www.behindthename.com/api/random.php?number=1&key=xxxxxx&usage='+this.state.typeVal, function(data) {
+    $.get('https://www.behindthename.com/api/random.php?number=1&key='+this.state.apiKey+'&usage='+this.state.typeVal, function(data) {
       var theword = $(data).find('name').text();
       console.log('get value is ' + theword);
       self.setState({
